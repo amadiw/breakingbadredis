@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import Homescreen from "./screens/Homescreen";
 import RandomQuote from "./screens/RandomQuote";
 
@@ -11,7 +11,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" options={{
+        <Stack.Screen
+          name="Home"
+          component={Homescreen}
+          options={{
             title: "Breaking Bad Quotes",
             headerTitleAlign: "center",
             headerTitleStyle: {
@@ -20,8 +23,22 @@ export default function App() {
             headerStyle: {
               backgroundColor: "#093009",
             },
-          }}component={Homescreen} />
-        <Stack.Screen name="Quotes" component={RandomQuote} />
+          }}
+        />
+        <Stack.Screen
+          name="Quotes"
+          component={RandomQuote}
+          options={{
+            title: "Test",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              color: "white",
+            },
+            headerStyle: {
+              backgroundColor: "#093009",
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -11,7 +11,7 @@ export default function Homescreen({navigation}) {
             "https://www.dkoding.in/wp-content/uploads/Breaking-Bad-Season-13-Release-Date-Trending-Today-DKODING.jpg",
         }}
       />
-      <Text style={{ fontSize: 20, padding: 30 }}>
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>
         Ready for some Breaking Bad Quotes?
       </Text>
       <Button title="Let's go!" onPress={() => navigation.navigate("Quotes")} />
