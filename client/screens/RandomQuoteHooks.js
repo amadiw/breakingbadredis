@@ -1,22 +1,18 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, View, Button, StyleSheet } from "react-native";
 import axios from "axios";
 
-export default class RandomQuote extends Component {
-  constructor() {
-    super();
-    this.state = {
-      quote: "",
-      author: "",
-    };
-    this.handlePress = this.handlePress.bind(this);
-  }
 
-  componentDidMount() {
-    this.fetchQuotes();
-  }
 
-  async fetchQuotes() {
+export default RandomQuoteHooks = () => {
+  const [quote, setQuote] = useState("")
+  const [author, setAuthor] = useState("")
+
+  useEffect(() => {
+    fetchQuotes()
+  }, [])
+
+   const fetchQuotes = () => {
     try {
       const { data: quotes } = await axios.get(
         "http://localhost:5000/api/quotes"
@@ -28,33 +24,30 @@ export default class RandomQuote extends Component {
       const random = Math.floor(Math.random() * cleanQuotes.length);
 
       const { quote, author } = cleanQuotes[random];
-      this.setState({
-        quote,
-        author,
-      });
+      setQuote(quote)
+      setAuthor(author)
     } catch (error) {
       console.error("Error with axios call: ", error);
     }
   }
 
-  handlePress() {
-    this.fetchQuotes();
+  const handlePress = () =>{
+    fetchQuotes();
   }
 
-  render() {
     return (
       <View>
-        <Text style={styles.text}>{this.state.quote} </Text>
-        <Text style={styles.author}>- {this.state.author} </Text>
+        <Text style={styles.text}>{quote} </Text>
+        <Text style={styles.author}>- {author} </Text>
         <Button
           style={styles.button}
           title="Next Quote"
-          onPress={this.handlePress}
+          onPress={handlePress}
         />
       </View>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -66,7 +59,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     paddingTop: 100,
     paddingBottom: 100,
-    paddingLeft: 30,
+    paddingLeft: 30,i
     paddingRight: 30,
     // alignContent: "center"
   },

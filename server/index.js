@@ -26,12 +26,12 @@ app.get("/api/quotes", (req, res) => {
       if (quotes) {
         res.send(quotes);
       } else {
-        const getQoutes = await axios.get(
+        const getQuotes = await axios.get(
           `https://www.breakingbadapi.com/api/quotes`
         );
-        const { data: qoutes } = getQoutes;
-        redisClient.setex("apiQuotes", 3600, JSON.stringify(qoutes));
-        res.json(qoutes);
+        const { data: quotes } = getQuotes;
+        redisClient.setex("apiQuotes", 3600, JSON.stringify(quotes));
+        res.json(quotes);
       }
     });
   } catch (error) {

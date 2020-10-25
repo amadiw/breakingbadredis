@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 import Homescreen from "./screens/Homescreen";
 import RandomQuote from "./screens/RandomQuote";
+import RandomQuoteHooks from "./screens/RandomQuote";
 
 const Stack = createStackNavigator();
 
@@ -27,9 +28,9 @@ export default function App() {
         />
         <Stack.Screen
           name="Quotes"
-          component={RandomQuote}
+          component={RandomQuoteHooks}
           options={{
-            title: "Test",
+            title: "Random Quote",
             headerTitleAlign: "center",
             headerTitleStyle: {
               color: "white",
