@@ -15,7 +15,7 @@ export default RandomQuoteHooks = () => {
    const fetchQuotes = () => {
     try {
       const { data: quotes } = await axios.get(
-        "http://localhost:5000/api/quotes"
+        "http://10.0.2.2:5000/api/quotes"
       );
 
       const cleanQuotes = quotes.filter((item) => {

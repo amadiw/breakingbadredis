@@ -41,4 +41,4 @@ app.get("/api/quotes", (req, res) => {
 });
 
 //listen on port 5000;
-app.listen(port, () => console.log(`Server running on Port ${port}\nRedis runnong on Port ${port_redis}`));
+app.listen(port, () => console.log(`Server running on Port ${port}\nRedis running on Port ${port_redis}`));

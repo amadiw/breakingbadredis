@@ -28,7 +28,7 @@ export default function App() {
         />
         <Stack.Screen
           name="Quotes"
-          component={RandomQuoteHooks}
+          component={RandomQuote} //The RandomQuoteHooks.js component can be used here as well
           options={{
             title: "Random Quote",
             headerTitleAlign: "center",
